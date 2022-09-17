@@ -9,7 +9,7 @@ function Model({ ...props }) {
   const group = useRef()
   const { nodes, materials } = useGLTF(props.modelname)
   console.log(nodes)
-  console.log(materials)
+  // console.log(materials)
 
   const [meshArray, setMeshArray] = useState([])
 
