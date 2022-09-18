@@ -48,7 +48,7 @@ function Customizer() {
   const [caps, setCaps] = useState("#ffffff")
   const [inner, setInner] = useState("#ffffff")
 
-  const modelName = "3dmodels/9_mm.glb"
+  const modelName = "3dmodels/lotus_exige_240.glb"
 
   const { nodes, materials } = useGLTF(modelName)
   console.log(nodes)

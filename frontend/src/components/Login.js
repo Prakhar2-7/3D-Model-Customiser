@@ -1,127 +1,100 @@
-import "../index.css"
-import { Suspense, useEffect, useRef, useState } from "react"
-import { Canvas } from "@react-three/fiber"
-import { OrbitControls, useGLTF } from "@react-three/drei"
-import React from "react"
-import { useNavigate } from "react-router-dom"
+import { Formik } from 'formik';
+import React from 'react'
 
-function Model({ ...props }) {
-  const group = useRef()
-  const { nodes, materials } = useGLTF(props.modelname)
-  console.log(nodes)
-  // console.log(materials)
+const Login = () => {
 
-  const [meshArray, setMeshArray] = useState([])
+  // 1. submit function
+  const loginSubmit = (formdata) => {
+    console.log(formdata);
 
-  useEffect(() => {
-    showModel()
-  }, [])
-
-  const showModel = () => {
-    return Object.keys(nodes)
-      .filter((node) => nodes[node].type === "Mesh")
-      .map((obj, i) => {
-        let cur_mat = materials[Object.keys(materials)[i]]
-        // console.log(cur_mat.name);
-        // console.log(props);
-        return <mesh geometry={nodes[obj].geometry} material={cur_mat} material-color={props.customMat[i]} />
-      })
+    // instructions to store data in database
   }
+  // 2. locate/created the form tag
+  // 3. use Formik on form tag
 
   return (
-    <group ref={group} {...props} dispose={null} scale={3}>
-      {showModel()}
-    </group>
-  )
-}
+    <section className="vh-100" style={{ backgroundColor: "lightpink" }}>
+      <div className="container py-5 h-100">
+        <div className="row d-flex justify-content-center align-items-center h-100">
+          <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div className="card shadow-2-strong" style={{ borderRadius: "1rem" }}>
+              <div className="card-body p-5 text-center">
+                <h3 className="mb-5">Sign in</h3>
+                
+                <Formik initialValues={{email : '', password : ''}} onSubmit={loginSubmit}>
+                    { ({ values, handleSubmit, handleChange }) => (
+                      <form onSubmit={handleSubmit}>
+                      <div className="form-outline mb-4">
+                        <input
+                          type="email"
+                          id="email"
+                          value={values.email}
+                          onChange={handleChange}
+                          className="form-control form-control-lg"
+                        />
+                        <label className="form-label" htmlFor="typeEmailX-2">
+                          Email
+                        </label>
+                      </div>
+                      <div className="form-outline mb-4">
+                        <input
+                          type="password"
+                          id="password"
+                          value={values.password}
+                          onChange={handleChange}
+                          className="form-control form-control-lg"
+                        />
+                        <label className="form-label" htmlFor="typePasswordX-2">
+                          Password
+                        </label>
+                      </div>
+                      {/* Checkbox */}
+                      <div className="form-check d-flex justify-content-start mb-4">
+                        <input
+                          className="form-check-input"
+                          type="checkbox"
+                          defaultValue=""
+                          id="form1Example3"
+                        />
+                        <label className="form-check-label" htmlFor="form1Example3">
+                          {" "}
+                          Remember password{" "}
+                        </label>
+                      </div>
+                      <button className="btn btn-primary btn-lg btn-block" type="submit">
+                        Login
+                      </button>
+                    </form>
+                    ) }
+                </Formik>
 
-function Model3D() {
-  const navigate = useNavigate()
-  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem("user")))
-
-  const [mesh, setMesh] = useState("#ffffff")
-  const [stripes, setStripes] = useState("#ffffff")
-  const [sole, setSole] = useState("#ffffff")
-  const [laces, setLaces] = useState("#ffffff")
-  const [band, setBand] = useState("#ffffff")
-  const [patch, setPatch] = useState("#ffffff")
-  const [caps, setCaps] = useState("#ffffff")
-  const [inner, setInner] = useState("#ffffff")
-
-  const modelName = "ModelData/shoe.gltf";
-
-  const { nodes, materials } = useGLTF(modelName);
-  console.log(nodes);
-  console.log(materials);
-  const [customMat, setCustomMat] = useState(Array.from(Object.keys(materials), a => '#fff'));
-  console.log(customMat);
-
-
-
-  const updateCustomMat = (i, val) => {
-    let newCustomMat = customMat
-    newCustomMat[i] = val
-    setCustomMat([...newCustomMat])
-  }
-
-  return (
-    <div className="App">
-      <div className="row" style={{marginTop : '5vh'}}>
-        <div className="col-md-8">
-          <div className="product-canvas border border-warning border-3 rounded-2" style={{ marginLeft: "10px" }}>
-            <Canvas>
-              <Suspense fallback={null}>
-                <ambientLight />
-                <spotLight intensity={0.9} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
-                <Model
-                  customMat={customMat}
-                  modelname={modelName}
-                  customColors={{
-                    mesh: mesh,
-                    stripes: stripes,
-                    sole: sole,
-                    laces: laces,
-                    band: band,
-                    patch: patch,
-                    caps: caps,
-                    inner: inner,
-                  }}
-                />
-                <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
-              </Suspense>
-            </Canvas>
-          </div>
-        </div>
-{/* colour chooser */}
-        <div className="col-md-4">
-          <div className="card-c pallete-card">
-            <div className="card-body">
-              <h2 className="text-center">Color chooser</h2>
-              <hr />
-              {customMat.map((mat, i) => (
-                <div className="card-body" style={{paddingTop: "10px"}}>
-                  <h4 style={{ display: "inline" }} for="mesh">
-                    {Object.keys(materials)[i].toUpperCase()}
-                  </h4>{"  "}   
-                  <input type="color" id="mesh" name="mesh" value={mat} onChange={(e) => updateCustomMat(i, e.target.value)} />
-                </div>
-              ))}
-            </div>
-          </div>
-          {/* <div className="colors container mt-2 border border-3 border-danger">
-          
-            <div className="row">
-              <div className="col-md-3 mt-4">
-                <div className="cards">
-                  
-                </div>
+                
+                <hr className="my-4" />
+                <button
+                  className="btn btn-lg btn-block btn-primary"
+                  style={{ backgroundColor: "#dd4b39" }}
+                  type="submit"
+                >
+                  <i className="fab fa-google me-2" /> 
+                  Sign in with google
+                </button>
+                <button
+                  className="btn btn-lg btn-block btn-primary mb-2"
+                  style={{ backgroundColor: "#3b5998" }}
+                  type="submit"
+                >
+                  <i className="fab fa-facebook-f me-2" />
+                  Sign in with facebook
+                </button>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
   )
 }
 
-export default Model3D
+export default Login
+
