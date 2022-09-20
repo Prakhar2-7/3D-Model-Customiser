@@ -24,7 +24,7 @@ function Model({ ...props }) {
         let cur_mat = materials[Object.keys(materials)[i]]
         // console.log(cur_mat.name);
         // console.log(props);
-        return <mesh geometry={nodes[obj].geometry} material={cur_mat} material-color={props.customMat[i]} />
+        return <mesh geometry={nodes[obj].geometry} material={nodes[obj].material} material-color={props.customMat[i]} />
       })
   }
 
@@ -48,7 +48,7 @@ function Customizer() {
   const [caps, setCaps] = useState("#ffffff")
   const [inner, setInner] = useState("#ffffff")
 
-  const modelName = "3dmodels/lotus_exige_240.glb"
+  const modelName = "3dmodels/lotus.glb"
 
   const { nodes, materials } = useGLTF(modelName)
   console.log(nodes)
