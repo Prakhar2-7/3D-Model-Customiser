@@ -18,7 +18,7 @@ const Home = () => {
                   data-mdb-ripple-color="light"
                 >
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/belt.webp"
+                    src="images/aircraft.jpeg"
                     className="w-100"
                   />
                   <a href="#!">
@@ -39,10 +39,10 @@ const Home = () => {
                 </div>
                 <div className="card-body">
                   <a href="" className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
+                    <h5 className="card-title mb-3">AIRCRAFT</h5>
                   </a>
                   <a href="" className="text-reset">
-                    <p>Category</p>
+                    <p>3-D MODEL</p>
                   </a>
                   <h6 className="mb-3">$61.99</h6>
                 </div>
@@ -55,7 +55,7 @@ const Home = () => {
                   data-mdb-ripple-color="light"
                 >
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(4).webp"
+                    src="images/car.jpeg"
                     className="w-100"
                   />
                   <a href="#!">
@@ -76,10 +76,10 @@ const Home = () => {
                 </div>
                 <div className="card-body">
                   <a href="" className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
+                    <h5 className="card-title mb-3">CAR</h5>
                   </a>
                   <a href="" className="text-reset">
-                    <p>Category</p>
+                    <p>3-D MODEL</p>
                   </a>
                   <h6 className="mb-3">$61.99</h6>
                 </div>
@@ -92,7 +92,7 @@ const Home = () => {
                   data-mdb-ripple-color="light"
                 >
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/shoes%20(3).webp"
+                    src="images/gramophone.jpeg"
                     className="w-100"
                   />
                   <a href="#!">
@@ -113,10 +113,10 @@ const Home = () => {
                 </div>
                 <div className="card-body">
                   <a href="" className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
+                    <h5 className="card-title mb-3">GRAMOPHONE</h5>
                   </a>
                   <a href="" className="text-reset">
-                    <p>Category</p>
+                    <p>3-D MODEL</p>
                   </a>
                   <h6 className="mb-3">
                     <s>$61.99</s>
@@ -134,7 +134,7 @@ const Home = () => {
                   data-mdb-ripple-color="light"
                 >
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(23).webp"
+                    src="images/gun.jpeg"
                     className="w-100"
                   />
                   <a href="#!">
@@ -156,10 +156,10 @@ const Home = () => {
                 </div>
                 <div className="card-body">
                   <a href="" className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
+                    <h5 className="card-title mb-3">GUN</h5>
                   </a>
                   <a href="" className="text-reset">
-                    <p>Category</p>
+                    <p>3-D MODEL</p>
                   </a>
                   <h6 className="mb-3">
                     <s>$61.99</s>
@@ -175,7 +175,7 @@ const Home = () => {
                   data-mdb-ripple-color="light"
                 >
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(17).webp"
+                    src="images/monster.jpeg"
                     className="w-100"
                   />
                   <a href="#!">
@@ -192,10 +192,10 @@ const Home = () => {
                 </div>
                 <div className="card-body">
                   <a href="" className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
+                    <h5 className="card-title mb-3">MONSTER</h5>
                   </a>
                   <a href="" className="text-reset">
-                    <p>Category</p>
+                    <p>3-D MODEL</p>
                   </a>
                   <h6 className="mb-3">$61.99</h6>
                 </div>
@@ -208,7 +208,7 @@ const Home = () => {
                   data-mdb-ripple-color="light"
                 >
                   <img
-                    src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/img%20(30).webp"
+                    src="images/table.jpeg"
                     className="w-100"
                   />
                   <a href="#!">
@@ -231,10 +231,10 @@ const Home = () => {
                 </div>
                 <div className="card-body">
                   <a href="" className="text-reset">
-                    <h5 className="card-title mb-3">Product name</h5>
+                    <h5 className="card-title mb-3">TABEL</h5>
                   </a>
                   <a href="" className="text-reset">
-                    <p>Category</p>
+                    <p>3-D MODEL</p>
                   </a>
                   <h6 className="mb-3">
                     <s>$61.99</s>

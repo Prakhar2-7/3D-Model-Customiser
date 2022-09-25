@@ -15,7 +15,9 @@ function Model({ ...props }) {
 
   useEffect(() => {
     showModel()
-  }, [])
+  }, []);
+
+
 
   const showModel = () => {
     return Object.keys(nodes)
@@ -48,6 +50,33 @@ function Customizer() {
   const [caps, setCaps] = useState("#ffffff")
   const [inner, setInner] = useState("#ffffff")
 
+  const modelData = {
+    lotus : {
+      image : 'car.jpeg',
+      file : 'lotus.glb'
+    },
+    poly : {
+      image : 'monster.jpeg',
+      file : 'poly.glb'
+    },
+    wooden_table : {
+      image : 'table.jpeg',
+      file : 'wooden_table.glb'
+    },
+    gramophone : {
+      image : 'gramophone.jpeg',
+      file : 'gramophone.glb'
+    },
+    dooms : {
+      image : 'aircraft.jpeg',
+      file : 'dooms.glb'
+    },
+    9_mm : {
+      image : 'gun.jpeg',
+      file : '9_mm.glb'
+    }
+  }
+
   const modelName = "3dmodels/lotus.glb"
 
   const { nodes, materials } = useGLTF(modelName)
@@ -67,7 +96,7 @@ function Customizer() {
       <div className="row" style={{ marginTop: "5vh" }}>
         <div className="col-md-8">
           <div className="product-canvas border border-warning border-3 rounded-2" style={{ marginLeft: "10px" }}>
-            <Canvas style={{height : '50vh'}}>
+            <Canvas style={{ height: '50vh' }}>
               <Suspense fallback={null}>
                 <ambientLight />
                 <spotLight intensity={0.9} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
